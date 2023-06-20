@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* _isalpha - Alx task
+* _abs - Alx task
 * @c: the character to be checked
 *
 * Return: 1 if c is lowercase, 0 otherwise
