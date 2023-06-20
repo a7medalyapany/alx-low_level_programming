@@ -1,4 +1,4 @@
-#include <stadio.h>
+#include <stdio.h>
 
 /**
 * _islower - check the lowercase charachter

@@ -1,4 +1,4 @@
-#include <stadio.h>
+#include <stdio.h>
 
 /**
 * print_alphabet - prints the lowercase alphabet
