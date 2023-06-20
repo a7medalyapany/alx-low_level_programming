@@ -13,17 +13,3 @@ void print_alphabet(void)
 
 	_putchar('\n');
 }
-
-/**
-* main - Entry point
-*
-* Description: ALX tasks
-*
-* Return: Always 0 (Success)
-*/
-
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
