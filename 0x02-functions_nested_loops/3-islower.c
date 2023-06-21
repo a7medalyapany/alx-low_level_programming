@@ -14,11 +14,3 @@ int _islower(int c)
 	return (0);
 }
 
-/**
-* main - Entry point
-*
-* Description: ALX tasks
-*
-* Return: Always 0 (Success)
-*/
-
