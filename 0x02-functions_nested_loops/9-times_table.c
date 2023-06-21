@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * times_table - Prints the 9 times table
+ * times_table - Prints the 9 times table, starting with 0
  */
 void times_table(void)
 {
@@ -14,11 +14,14 @@ void times_table(void)
 
 		for (j = 1; j <= 9; j++)
 		{
-			if (j != 10)
-				printf("%2d, ", (i * j));
+			int product = i * j;
+
+			if (product < 10)
+				printf(",   %d", product);
 			else
-				printf("%2d", (i * j));
+				printf(",  %d", product);
 		}
+
 		printf("\n");
 	}
 }
