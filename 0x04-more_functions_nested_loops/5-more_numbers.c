@@ -3,7 +3,6 @@
 /**
  * more_numbers - method for ALX task
  *
- * Return: 1 if on success, 0 if not
  */
 
 void more_numbers(void)
