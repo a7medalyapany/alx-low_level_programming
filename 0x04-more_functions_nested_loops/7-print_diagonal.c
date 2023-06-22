@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_duagonal - method for ALX task
+ * print_diagonal - method for ALX task
  * @n: ID for alx task
  *
  * Return: 1 if on success, 0 if not
