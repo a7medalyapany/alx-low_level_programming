@@ -1,4 +1,4 @@
-i#include "main.h"
+#include "main.h"
 
 /**
  * more_numbers - method for ALX task
