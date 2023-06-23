@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_line - method for ALX task
+ * print_line - print a straight line
  * @n: ID for alx task
  *
  */
@@ -14,9 +14,10 @@ void print_line(int n)
 		_putchar('\n');
 		return;
 	}
-
-	for (i = 0; i < n; i++)
+	else
 	{
-		_putchar('n');
+		for (i = 1; i <= n; i++)
+			_putchar('_');
+		_putchar('\n');
 	}
 }

@@ -2,20 +2,21 @@
 #include <stdio>
 
 /**
- * FizzBuzz - method for ALX task
+ * main - method for ALX task
  *
+ * Return: Always 0 (Success)
  */
-void FizzBuzz(void)
+int main(void)
 {
 	int i;
 
-	for (i = 0; i <= 100; i++)
+	for (i = 1; i <= 100; i++)
 	{
-		if (i / 3)
+		if (i % 3 == 0 && !(i % 5 == 0))
 			printf("Fizz");
-		else if (i / 5)
+		else if (i % 5 == 0 && !(i % 3 == 0))
 			printf("Buzz");
-		else if ((i / 3) && (i / 5))
+		else if ((i % 3 == 0) && (i % 5 == 0))
 			printf("FizzBuzz");
 		else
 		{
@@ -25,4 +26,5 @@ void FizzBuzz(void)
 				printf("%d ", i);
 		}
 	}
+	return (0);
 }

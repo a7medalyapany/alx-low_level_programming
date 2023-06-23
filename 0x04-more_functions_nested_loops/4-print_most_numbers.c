@@ -3,7 +3,7 @@
 /**
  * print_most_numbers - method for ALX task
  *
- * Return: 1 if on success, 0 if not
+ * Return: Always 0 (Success)
  */
 
 void print_most_numbers(void)
