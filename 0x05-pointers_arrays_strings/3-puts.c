@@ -1,19 +1,18 @@
 #include "main.h"
 
 /**
- * print_rev - method for ALX task
- * @s: ID for alx task
+ * _puts - method for ALX task
+ * @str: ID for alx task
  *
  * Return: Always 0.
  */
 
-void print_rev(char *s)
+void _puts(char *str)
 {
-	int i;
-
-	for (i = strlen(*s); i >= 0; i--)
+	while (*str != '\0')
 	{
-		_putchar(*s[i] + 0);
+		_putchar(*str + 0);
+		str++;
 	}
 	_putchar('\n');
 }
