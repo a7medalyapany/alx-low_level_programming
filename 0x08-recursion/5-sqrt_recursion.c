@@ -1,13 +1,20 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion - fn
- * @n: Id
- * @guess: ID
- * Return: on success 1.
- *         on error -1 is returned, and errno is set appropriately.
+ * sqrt_helper - recursive helper function for _sqrt_recursion
+ * @n: number to calculate the square root of
+ * @guess: current guess for the square root
+ *
+ * Return: square root of n, or -1 if no exact square root exists
  */
 int sqrt_helper(int n, int guess);
+
+/**
+ * _sqrt_recursion - returns the natural square root of a number
+ * @n: number to calculate the square root of
+ *
+ * Return: square root of n, or -1 if n is negative
+ */
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
@@ -19,12 +26,11 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * sqrt_helper - fn
- * @n: Id
- * @guess: Id
+ * sqrt_helper - recursive helper function for calculating square root
+ * @n: number to calculate the square root of
+ * @guess: current guess for the square root
  *
- * Return: on success 1.
- *         on error -1 is returned, and errno is set appropriately.
+ * Return: square root of n, or -1 if no exact square root exists
  */
 int sqrt_helper(int n, int guess)
 {
@@ -35,3 +41,4 @@ int sqrt_helper(int n, int guess)
 	else
 		return (sqrt_helper(n, guess + 1));
 }
+
