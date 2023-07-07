@@ -3,17 +3,27 @@
 #include "main.h"
 
 /**
+ * is_palindrome_helper - Helper function to check if a string is a palindrome.
+ * @s: The input string to check.
+ * @start: The starting index for comparison.
+ * @end: The ending index for comparison.
+ *
+ * Return: true if the string is a palindrome, false otherwise.
+ */
+int is_palindrome_helper(char *s, int start, int end);
+
+/**
  * is_palindrome - Check if a string is a palindrome.
  * @s: The input string to check.
  *
  * Return: 1 if the string is a palindrome, 0 otherwise.
  */
-bool is_palindrome(char *s)
+int is_palindrome(char *s)
 {
 	int length = strlen(s);
 
 	if (length <= 1)
-		return (true);
+		return (1);
 
 	return (is_palindrome_helper(s, 0, length - 1));
 }
@@ -26,13 +36,13 @@ bool is_palindrome(char *s)
  *
  * Return: true if the string is a palindrome, false otherwise.
  */
-bool is_palindrome_helper(char *s, int start, int end)
+int is_palindrome_helper(char *s, int start, int end)
 {
 	if (start >= end)
-		return (true);
+		return (1);
 
 	if (s[start] != s[end])
-		return (false);
+		return (0);
 
 	return (is_palindrome_helper(s, start + 1, end - 1));
 }

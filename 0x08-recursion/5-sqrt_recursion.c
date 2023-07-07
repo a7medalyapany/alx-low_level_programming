@@ -34,7 +34,9 @@ int _sqrt_recursion(int n)
  */
 int sqrt_helper(int n, int guess)
 {
-	if (guess * guess == n)
+	if (guess < 0)
+		return (-1);
+	else if (guess * guess == n)
 		return (guess);
 	else if (guess * guess > n)
 		return (sqrt_helper(n, guess - 1));
