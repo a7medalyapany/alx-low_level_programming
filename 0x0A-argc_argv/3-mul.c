@@ -2,22 +2,26 @@
 #include <stdlib.h>
 
 /**
- * main - function
- * @argc : int
- * @argv: list
- * Return: 0
+ * main - Entry point of the program
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line arguments
+ *
+ * Return: 0 if success, 1 otherwise
  */
 int main(int argc, char *argv[])
 {
-	int n1 = atoi(argv[1]);
-	int n2 = atoi(argv[2]);
-	int r = n1 * n2;
+	int num1, num2, result;
 
 	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	printf("%d\n", r);
+
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	result = num1 * num2;
+
+	printf("%d\n", result);
 	return (0);
 }
