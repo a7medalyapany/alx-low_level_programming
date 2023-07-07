@@ -7,9 +7,9 @@
  * @argv: list
  * Return: 0
  */
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-	int n1 = atoi(argc[1]);
+	int n1 = atoi(argv[1]);
 	int n2 = atoi(argv[2]);
 	int r = n1 * n2;
 
