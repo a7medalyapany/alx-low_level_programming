@@ -3,26 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-void multiply(char *num1, char *num2);
-int is_positive_number(const char *num);
-void print_error_and_exit(void);
-void reverse_string(char *str);
-void add_strings(char *result, char *num);
-char *allocate_memory(int size);
-
-int main(int argc, char *argv[])
-{
-	if (argc != 3)
-		print_error_and_exit();
-
-	if (!is_positive_number(argv[1]) || !is_positive_number(argv[2]))
-		print_error_and_exit();
-
-	multiply(argv[1], argv[2]);
-
-	return (0);
-}
-
+/**
+ * multiply - Multiplies two positive numbers
+ * @num1: The first number to multiply
+ * @num2: The second number to multiply
+ */
 void multiply(char *num1, char *num2)
 {
 	int len1 = strlen(num1);
@@ -57,6 +42,12 @@ void multiply(char *num1, char *num2)
 	free(result);
 }
 
+/**
+ * is_positive_number - Checks if a string represents a positive number
+ * @num: The string to check
+ *
+ * Return: 1 if the string represents a positive number, 0 otherwise
+ */
 int is_positive_number(const char *num)
 {
 	for (int i = 0; num[i] != '\0'; i++)
@@ -68,12 +59,19 @@ int is_positive_number(const char *num)
 	return (1);
 }
 
+/**
+ * print_error_and_exit - Prints an error message and exits with status 98
+ */
 void print_error_and_exit(void)
 {
 	printf("Error\n");
 	exit(98);
 }
 
+/**
+ * reverse_string - Reverses a string in place
+ * @str: The string to reverse
+ */
 void reverse_string(char *str)
 {
 	int i = 0;
@@ -89,6 +87,11 @@ void reverse_string(char *str)
 	}
 }
 
+/**
+ * add_strings - Adds a number string to the result string
+ * @result: The result string
+ * @num: The number string to add
+ */
 void add_strings(char *result, char *num)
 {
 	int carry = 0;
@@ -111,6 +114,12 @@ void add_strings(char *result, char *num)
 	result[len] = '\0';
 }
 
+/**
+ * allocate_memory - Allocates memory dynamically
+ * @size: The size of the memory to allocate
+ *
+ * Return: Pointer to the allocated memory
+ */
 char *allocate_memory(int size)
 {
 	char *ptr = malloc(size * sizeof(char));
