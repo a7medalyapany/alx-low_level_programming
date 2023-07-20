@@ -11,13 +11,13 @@
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-    if (array && action)
-    {
-        for (size_t i = 0; i < size; i++)
-        {
-            action(array[i]);
-        }
-    }
+	if (array && action)
+	{
+		for (size_t i = 0; i < size; i++)
+		{
+			action(array[i]);
+		}
+	}
 }
 
 /**
@@ -28,7 +28,7 @@ void array_iterator(int *array, size_t size, void (*action)(int))
  */
 void print_elem(int elem)
 {
-    printf("%d\n", elem);
+	printf("%d\n", elem);
 }
 
 /**
@@ -39,5 +39,5 @@ void print_elem(int elem)
  */
 void print_elem_hex(int elem)
 {
-    printf("0x%x\n", elem);
+	printf("0x%x\n", elem);
 }

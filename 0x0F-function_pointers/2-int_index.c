@@ -7,20 +7,19 @@
  * @size: number of elements in the array
  * @cmp: pointer to the function used to compare values
  *
- * Return: index of the first element for which cmp function does not return 0
- *         -1 if no element matches or if size is <= 0
+ * Return: index of the first element
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-    if (array && cmp)
-    {
-        for (int i = 0; i < size; i++)
-        {
-            if (cmp(array[i]))
-                return i;
-        }
-    }
-    return -1;
+	if (array && cmp)
+	{
+		for (int i = 0; i < size; i++)
+		{
+			if (cmp(array[i]))
+			return (i);
+		}
+	}
+	return (-1);
 }
 
 /**
@@ -31,7 +30,7 @@ int int_index(int *array, int size, int (*cmp)(int))
  */
 int is_98(int elem)
 {
-    return (98 == elem);
+	return (elem == 98);
 }
 
 /**
@@ -42,7 +41,7 @@ int is_98(int elem)
  */
 int is_strictly_positive(int elem)
 {
-    return (elem > 0);
+	return (elem > 0);
 }
 
 
@@ -54,5 +53,5 @@ int is_strictly_positive(int elem)
  */
 int abs_is_98(int elem)
 {
-    return (elem == 98 || -elem == 98);
+	return (elem == 98 || -elem == 98);
 }
