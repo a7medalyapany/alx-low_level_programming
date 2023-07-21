@@ -16,6 +16,7 @@ void print_all(const char * const format, ...)
 	char *s;
 
 	va_start(args, format);
+	
 	while (ptr && *ptr)
 	{
 		c = *ptr;
@@ -36,10 +37,9 @@ void print_all(const char * const format, ...)
 		ptr++;
 
 		if (*ptr && (c == 'c' || c == 'i' || c == 'f' || c == 's'))
-		printf(", ");
+			printf(", ");
 	}
 
 	printf("\n");
 	va_end(args);
 }
-
