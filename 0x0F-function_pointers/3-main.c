@@ -17,7 +17,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf("Error\n");
+		_putchar("Error");
+		_putchar("\n");
 		return (98);
 	}
 
@@ -27,13 +28,15 @@ int main(int argc, char *argv[])
 	op_func = get_op_func(argv[2]);
 	if (!op_func)
 	{
-		printf("Error\n");
+		_putchar("Error");
+		_putchar("\n");
 		return (99);
 	}
 
 	if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
 	{
-		printf("Error\n");
+		_putchar("Error");
+		_putchar("\n");
 		return (100);
 	}
 
