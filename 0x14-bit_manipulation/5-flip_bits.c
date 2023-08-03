@@ -1,9 +1,9 @@
-#include "lists.h"
+#include "main.h"
 
 /**
  * flip_bits - Returns the number of bits to flip to get from n to m.
  * @n: The first number.
- * @m: The second number.
+ * @m: The second number
  *
  * Return: The number of bits to flip.
  */
