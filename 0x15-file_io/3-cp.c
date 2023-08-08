@@ -38,15 +38,26 @@ int main(int argc, char *argv[])
 		print_error("Error: Can't read from file %s\n", argv[1], 98);
 	fileTo = open(argv[2], O_WRONLY | O_TRUNC, 0664);
 	if (fileTo < 0)
+	{
+		close(fileFrom);
 		print_error("Error: Can't write to %s\n", argv[2], 99);
+	}
 	while ((bytesR = read(fileFrom, buffer, BUFFER_SIZE)) > 0)
 	{
 		bytesW = write(fileTo, buffer, bytesR);
 		if (bytesW == -1 || bytesW != bytesR)
+		{
+			close(fileFrom);
+			close(fileTo);
 			print_error("Error: Can't write to %s\n", argv[2], 99);
+		}
 	}
 	if (bytesR == -1)
+	{
+		close(fileFrom);
+		close(fileTo);
 		print_error("Error: Can't read from file %s\n", argv[1], 98);
+	}
 	if (close(fileFrom) == -1)
 		print_error("Error: Can't close fd %d\n", argv[1], 100);
 	if (close(fileTo) == -1)
