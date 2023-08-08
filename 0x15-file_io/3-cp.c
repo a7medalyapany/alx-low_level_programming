@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	fileFrom = open(argv[1], O_RDONLY);
 	if (fileFrom < 0)
 		print_error("Error: Can't read from file %s\n", argv[1], 98);
-	fileTo = open(arg[2], O_WRONLY | O_TRUNC, 0664);
+	fileTo = open(argv[2], O_WRONLY | O_TRUNC, 0664);
 	if (fileTo < 0)
 		print_error("Error: Can't write to %s\n", argv[2], 99);
 	while ((bytesR = read(fileFrom, buffer, BUFFER_SIZE)) > 0)
