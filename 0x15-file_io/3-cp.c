@@ -1,67 +1,68 @@
 #include "main.h"
 
 /**
- * print_error - print error
+ * main - Entry point
+ * @argc: The number of command-line arguments
+ * @argv: An array containing the command-line arguments
  *
- * @message: the error msg
- * @filename: file name
- * @fd: file descriptor
- *
- * Return: nothing.
- */
-void print_error(const char *message, const char *filename, int fd)
-{
-	dprintf(STDERR_FILENO, message, filename, fd);
-	exit(fd);
-}
-
-/**
- * main - check the code
- *
- * @argc: ID
- * @argv: ID
- *
- * Return: Always return.
+ * Return: 0 on success, 97, 98, 99, or 100 on failure
  */
 int main(int argc, char *argv[])
 {
-	int fileFrom, fileTo, bytesR, bytesW;
-	char buffer[BUFFER_SIZE];
+	int fd_from, fd_to, ret_read, ret_write;
+	char buffer[BUF_SIZE];
+	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 	if (argc != 3)
-	{
 		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
-		exit(97);
-	}
-	fileFrom = open(argv[1], O_RDONLY);
-	if (fileFrom < 0)
-		print_error("Error: Can't read from file %s\n", argv[1], 98);
-	fileTo = open(argv[2], O_WRONLY | O_TRUNC, 0664);
-	if (fileTo < 0)
+
+	fd_from = open(argv[1], O_RDONLY);
+	if (fd_from == -1)
 	{
-		close(fileFrom);
-		print_error("Error: Can't write to %s\n", argv[2], 99);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
-	while ((bytesR = read(fileFrom, buffer, BUFFER_SIZE)) > 0)
+
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+	if (fd_to == -1)
 	{
-		bytesW = write(fileTo, buffer, bytesR);
-		if (bytesW == -1 || bytesW != bytesR)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		close(fd_from);
+		exit(99);
+	}
+
+	do {
+		ret_read = read(fd_from, buffer, BUF_SIZE);
+		if (ret_read == -1)
 		{
-			close(fileFrom);
-			close(fileTo);
-			print_error("Error: Can't write to %s\n", argv[2], 99);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			close(fd_from);
+			close(fd_to);
+			exit(98);
 		}
-	}
-	if (bytesR == -1)
+
+		ret_write = write(fd_to, buffer, ret_read);
+		if (ret_write == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close(fd_from);
+			close(fd_to);
+			exit(99);
+		}
+	} while (ret_read > 0);
+
+	if (close(fd_from) == -1)
 	{
-		close(fileFrom);
-		close(fileTo);
-		print_error("Error: Can't read from file %s\n", argv[1], 98);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+		exit(100);
 	}
-	if (close(fileFrom) == -1)
-		print_error("Error: Can't close fd %d\n", argv[1], 100);
-	if (close(fileTo) == -1)
-		print_error("Error: Can't close fd %d\n", argv[2], 100);
+
+	if (close(fd_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
+		exit(100);
+	}
+
 	return (0);
 }
 
