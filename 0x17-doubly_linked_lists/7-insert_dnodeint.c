@@ -8,7 +8,8 @@
  *
  * Return: address of the new node, or NULL
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx,
+									 int n)
 {
 	dlistint_t *current = *head;
 	dlistint_t *new_node = malloc(sizeof(dlistint_t));
