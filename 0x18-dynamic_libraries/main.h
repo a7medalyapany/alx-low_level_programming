@@ -1,10 +1,7 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef DYNLIB
+#define DYNLIB
 
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
 
 int _putchar(char c);
 int _islower(int c);
