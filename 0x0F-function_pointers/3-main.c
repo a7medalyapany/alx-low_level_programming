@@ -5,8 +5,8 @@
 
 /**
  * main - Entry point
- * @argc: The number of command line arguments
- * @argv: Array of command line arguments
+ * @argc: The number of command ln arguments
+ * @argv: Array of command ln arguments
  *
  * Return: Always 0 (Success)
  */

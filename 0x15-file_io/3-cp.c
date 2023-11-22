@@ -2,8 +2,8 @@
 
 /**
  * main - Entry point
- * @argc: The number of command-line arguments
- * @argv: An array containing the command-line arguments
+ * @argc: The number of command-ln arguments
+ * @argv: An array containing the command-ln arguments
  *
  * Return: 0 on success, 97, 98, 99, or 100 on failure
  */

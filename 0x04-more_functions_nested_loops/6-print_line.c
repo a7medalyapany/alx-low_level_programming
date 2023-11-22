@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_line - print a straight line
+ * print_ln - print a straight ln
  * @n: ID for alx task
  *
  */
-void print_line(int n)
+void print_ln(int n)
 {
 	int i;
 

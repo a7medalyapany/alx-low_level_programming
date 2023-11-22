@@ -1,0 +1,10 @@
+CC := gcc
+SRC := main.c school.c
+EXEC := school
+
+all: $(EXEC)
+
+$(EXEC): $(SRC)
+	$(CC) $(SRC) -o $(EXEC)
+
+.PHONY: all

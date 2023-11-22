@@ -3,8 +3,8 @@
 
 /**
  * main - Entry point of the program
- * @argc: Number of command-line arguments
- * @argv: Array of command-line arguments
+ * @argc: Number of command-ln arguments
+ * @argv: Array of command-ln arguments
  *
  * Return: 0 if success, 1 otherwise
  */
