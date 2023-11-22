@@ -1,24 +1,24 @@
-CC := gcc
-SRC := $(wildcard *.c)
-OBJ := $(SRC:.c=.o)
-NAME := school
-RM := rm -f
+# Task 3 - Makefile
+
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+    $(CC) $(OBJ) -o $(NAME)
 
 %.o: %.c
-	$(CC) -c $< -o $@
-
-.PHONY: all clean oclean fclean re
+    $(CC) -c $< -o $@
 
 clean:
-	$(RM) *~ $(NAME)
+    $(RM) $(wildcard *~) $(NAME)
 
 oclean:
-	$(RM) $(OBJ)
+    $(RM) $(wildcard *.o)
 
 fclean: clean oclean
 

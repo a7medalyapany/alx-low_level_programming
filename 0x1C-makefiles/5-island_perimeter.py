@@ -13,14 +13,13 @@ def island_perimeter(grid):
     for row in range(len(grid)):
         for col in range(len(grid[0])):
             if grid[row][col] == 1:
-                perimeter += 4  # Each land cell contributes 4 sides to the perimeter
+                perimeter += 4
 
-                # Check adjacent cells (up, down, left, right)
                 if row > 0 and grid[row - 1][col] == 1:
-                    perimeter -= 2  # If adjacent cell is also land, deduct 2 sides
+                    perimeter -= 2
 
                 if col > 0 and grid[row][col - 1] == 1:
-                    perimeter -= 2  # If adjacent cell is also land, deduct 2 sides
+                    perimeter -= 2
 
     return perimeter
 

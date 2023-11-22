@@ -1,6 +1,6 @@
-school: main.c school.c
+# Task 0 - Makefile
+
+school:
     gcc main.c school.c -o school
 
 all: school
-
-.PHONY: all
